@@ -45,7 +45,8 @@ function sortear() {
         
     }
 
-    retornoResultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${numerosSortedos}</label>`
+    retornoResultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${numerosSortedos}</label>`;
+    statusBotao();
    
     //monitoramento
     console.log(quantidade);
@@ -59,4 +60,33 @@ function numeroAleatorio(min, max) {
 
     return Math.floor(Math.random() * (max - min + 1)) + min; //essa função irá sortear os números dentro do intervalo inclusive
     
+}
+
+function statusBotao() {
+
+    let botao = document.getElementById("btn-reiniciar");
+
+    if (botao.classList.contains("container__botao-desabilitado")) {
+
+        botao.classList.remove("container__botao-desabilitado");
+        botao.classList.add("container__botao");
+
+    } else {
+
+        botao.classList.add("container__botao-desabilitado");
+        botao.classList.remove("container__botao");
+
+    }
+
+}
+
+function reiniciar() {
+
+    document.getElementById("quantidade").value = "";
+    document.getElementById("doNumero").value = "";
+    document.getElementById("ateNumero").value = "";
+    document.getElementById("resultado").innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
+
+    statusBotao();
+
 }
