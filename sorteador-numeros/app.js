@@ -17,7 +17,10 @@ function sortear() {
     let retornoResultado = document.getElementById("resultado");
 
     //loop de repetição
-    for (let i = 0; i < quantidade; i++) {
+
+    if (quantidade < (ateNumero - doNumero)) {
+
+        for (let i = 0; i < quantidade; i++) {
 
         numero = numeroAleatorio(doNumero, ateNumero);
 
@@ -43,8 +46,15 @@ function sortear() {
         numerosSortedos.push(numero);
          */
         
-    }
+        }
 
+    } else {
+
+        alert('[ERRO] Escolha uma quantidade de números menor que o intervalo');
+        reiniciar();
+
+    }
+    
     retornoResultado.innerHTML = `<label class="texto__paragrafo">Números sorteados: ${numerosSortedos}</label>`;
     statusBotao();
    
